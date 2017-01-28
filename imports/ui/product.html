@@ -1,0 +1,16 @@
+<template name="product">
+  <li class="{{#if checked}}checked{{/if}}">
+    {{#if isOwner}}
+    <button class="delete">&times;</button>
+    {{/if}}
+    {{#if currentUser}}
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    <button class="buttonsubtract"> - </button>
+    <button class="buttonadd"> + </button>
+
+    {{/if}}
+
+    <span class="text"> {{name}} - Cantidad: {{num}} - {{sitio}}-
+      <small><strong>{{username}}</strong></small></span>
+  </li>
+</template>

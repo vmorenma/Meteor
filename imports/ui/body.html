@@ -1,0 +1,49 @@
+<body>
+  <div class="container">
+    <header>
+      <h1>Shopping List</h1>
+
+      <label class="hide-completed">
+          <input type="checkbox" />
+          Hide products added to the cart
+        </label>
+          {{>loginButtons}}
+
+      <form class="new-product">
+        {{#if currentUser}}
+        <input class="numberinput" style="width: 10%" type="number" name="num" value="0"/>
+        <input  class ="nameinput" type="text" name="productname" placeholder="Type to especify the name of the product" />
+        <select name="sitio">
+          <option value="Supermercado">Supermercado</option>
+          <option value="Congelado">Congelado</option>
+          <option value="Fruteria">Fruteria</option>
+        </select>
+        <input class= "button" type="submit" name="text" value="Ok">
+        <br />
+        {{/if}}
+        <!--Filtering system-->
+        <div class="filter">
+          <label class= "show-super">
+            <input type="radio" name="placeFilter"/>Supermercado ({{incompleteCountSuper}})
+          </label>
+          <label class= "show-frozen">
+            <input type="radio" name="placeFilter"/>Congelado ({{incompleteCountCongelado}})
+          </label>
+          <label class= "show-greengrocer">
+            <input type="radio" name="placeFilter"/>Fruteria ({{incompleteCountFruteria}})
+          </label>
+          <label class= "show-all">
+            <input  type="radio" name="placeFilter" checked="checked"/>All ({{incompleteCount}})
+          </label>
+        </div>
+      </form>
+
+    </header>
+
+    <ul>
+      {{#each products}}
+        {{> product}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
